@@ -63,15 +63,23 @@ uint16_t myCOLORS[8]={myRED,myGREEN,myBLUE,myWHITE,myYELLOW,myCYAN,myMAGENTA,myB
 uint16_t sinX;
 uint8_t  xPos;
 uint8_t  yPos;
+uint8_t  frameIndex = 0; 
 const int centerY = 15;
 const long interval = 50;
 const float pi = 3.14159;
 const int circleDeg = 360;
 unsigned long previousMillis = 0;
+
+// This is the 'script' by which the animation plays.  
+// Each number is a frame, some of the same frames
+// are played in sequence to make them go on longer.
 const static uint8_t script[] = {
     0,0,0,0,1,1,0,0,0,0,2,4,3,4,5,4,3,4,5,4,3,4,5,4,3,4,5,4,3,4,5,4,3,4,5
 };
+
 char theTime[6] = "88:88";
+
+// The graphical elements
 const static uint16_t nums[10][63] PROGMEM = {
   // 0
   {
